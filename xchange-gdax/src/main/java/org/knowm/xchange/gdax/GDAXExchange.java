@@ -1,9 +1,12 @@
 package org.knowm.xchange.gdax;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.knowm.xchange.BaseExchange;
 import org.knowm.xchange.ExchangeSpecification;
+import org.knowm.xchange.currency.Currency;
 import org.knowm.xchange.gdax.dto.marketdata.GDAXProduct;
 import org.knowm.xchange.gdax.service.GDAXAccountService;
 import org.knowm.xchange.gdax.service.GDAXMarketDataService;
@@ -47,5 +50,17 @@ public class GDAXExchange extends BaseExchange {
 
     GDAXProduct[] products = ((GDAXMarketDataServiceRaw) marketDataService).getGDAXProducts();
     exchangeMetaData = GDAXAdapters.adaptToExchangeMetaData(exchangeMetaData, products);
+  }
+
+  @Override
+  public Map<Currency, Double> getWithdrawalFees() {
+    Map<Currency, Double> wdFees = new HashMap<>();
+
+    wdFees.put(Currency.BTC, .00);
+    wdFees.put(Currency.ETH, .00);
+    wdFees.put(Currency.USD, 25.0);
+    wdFees.put(Currency.USDT, 25.0);
+
+    return wdFees;
   }
 }

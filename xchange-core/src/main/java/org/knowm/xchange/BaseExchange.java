@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.io.IOUtils;
+import org.knowm.xchange.currency.Currency;
 import org.knowm.xchange.currency.CurrencyPair;
 import org.knowm.xchange.dto.meta.ExchangeMetaData;
 import org.knowm.xchange.exceptions.ExchangeException;
@@ -183,10 +184,35 @@ public abstract class BaseExchange implements Exchange {
     return accountService;
   }
 
+  public String getName() {
+      String name = this.getClass().getSimpleName();
+      return name.substring(0, name.indexOf("Exchange")).split("Streaming")[0];
+  }
+
   @Override
   public String toString() {
 
     String name = exchangeSpecification != null ? exchangeSpecification.getExchangeName() : getClass().getName();
     return name + "#" + hashCode();
   }
+
+  @Override
+  public int hashCode() {
+    return getClass().getName().hashCode();
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (obj == null || !(obj instanceof BaseExchange)) {
+        return false;
+    }
+
+    BaseExchange other = (BaseExchange) obj;
+
+    return this.getClass().getName().equals(other.getClass().getName());
+  }
+
+    public Map<Currency, Double> getWithdrawalFees() {
+      return null;
+    }
 }

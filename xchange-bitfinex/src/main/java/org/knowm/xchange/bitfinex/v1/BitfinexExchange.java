@@ -1,7 +1,9 @@
 package org.knowm.xchange.bitfinex.v1;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.knowm.xchange.BaseExchange;
 import org.knowm.xchange.Exchange;
@@ -10,6 +12,7 @@ import org.knowm.xchange.bitfinex.v1.service.BitfinexAccountService;
 import org.knowm.xchange.bitfinex.v1.service.BitfinexMarketDataService;
 import org.knowm.xchange.bitfinex.v1.service.BitfinexMarketDataServiceRaw;
 import org.knowm.xchange.bitfinex.v1.service.BitfinexTradeService;
+import org.knowm.xchange.currency.Currency;
 import org.knowm.xchange.currency.CurrencyPair;
 import org.knowm.xchange.exceptions.ExchangeException;
 import org.knowm.xchange.utils.nonce.AtomicLongIncrementalTime2013NonceFactory;
@@ -53,6 +56,18 @@ public class BitfinexExchange extends BaseExchange implements Exchange {
     List<CurrencyPair> currencyPairs = dataService.getExchangeSymbols();
     exchangeMetaData = BitfinexAdapters.adaptMetaData(currencyPairs, exchangeMetaData);
 
+  }
+
+  @Override
+  public Map<Currency, Double> getWithdrawalFees() {
+    Map<Currency, Double> wdFees = new HashMap<>();
+
+    wdFees.put(Currency.BTC, 0.008);
+    wdFees.put(Currency.ETH, 0.01);
+    wdFees.put(Currency.USDT, 20.0);
+    wdFees.put(Currency.USD, 20.0);
+
+    return wdFees;
   }
 
 }

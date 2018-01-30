@@ -16,16 +16,11 @@ public class GDAXOrder {
   private final BigDecimal fillFees;
   private final String status;
   private final boolean settled;
-  private final String type;
-  private final String doneReason;
-  private final BigDecimal executedvalue;
-
 
   public GDAXOrder(@JsonProperty("id") String id, @JsonProperty("price") BigDecimal price, @JsonProperty("size") BigDecimal size,
       @JsonProperty("product_id") String productId, @JsonProperty("side") String side, @JsonProperty("created_at") String createdAt,
       @JsonProperty("done_at") String doneAt, @JsonProperty("filled_size") BigDecimal filledSize, @JsonProperty("fill_fees") BigDecimal fillFees,
-      @JsonProperty("status") String status, @JsonProperty("settled") boolean settled, @JsonProperty("type") String type,
-                   @JsonProperty("done_reason") String doneReason, @JsonProperty("executed_value")  BigDecimal executedValue) {
+      @JsonProperty("status") String status, @JsonProperty("settled") boolean settled) {
     this.id = id;
     this.price = price;
     this.size = size;
@@ -37,9 +32,6 @@ public class GDAXOrder {
     this.fillFees = fillFees;
     this.status = status;
     this.settled = settled;
-    this.type = type;
-    this.doneReason = doneReason;
-    this.executedvalue = executedValue;
   }
 
   public String getId() {
@@ -84,18 +76,6 @@ public class GDAXOrder {
 
   public boolean isSettled() {
     return settled;
-  }
-
-  public String getType() {
-    return type;
-  }
-
-  public String getDoneReason() {
-    return doneReason;
-  }
-
-  public BigDecimal getExecutedvalue() {
-    return executedvalue;
   }
 
   @Override

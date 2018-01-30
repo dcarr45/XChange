@@ -26,7 +26,6 @@ import org.knowm.xchange.kraken.dto.trade.results.KrakenOrderResult;
 import org.knowm.xchange.kraken.dto.trade.results.KrakenQueryOrderResult;
 import org.knowm.xchange.kraken.dto.trade.results.KrakenQueryTradeResult;
 import org.knowm.xchange.kraken.dto.trade.results.KrakenTradeHistoryResult;
-import org.knowm.xchange.kraken.dto.trade.results.KrakenTradeHistoryResult.KrakenTradeHistory;
 
 public class KrakenTradeServiceRaw extends KrakenBaseService {
 
@@ -88,17 +87,17 @@ public class KrakenTradeServiceRaw extends KrakenBaseService {
     return checkResult(result);
   }
 
-  public KrakenTradeHistory getKrakenTradeHistory() throws IOException {
+  public Map<String, KrakenTrade> getKrakenTradeHistory() throws IOException {
 
     return getKrakenTradeHistory(null, false, null, null, null);
   }
 
-  public KrakenTradeHistory getKrakenTradeHistory(String type, boolean includeTrades, Long start, Long end, Long offset) throws IOException {
+  public Map<String, KrakenTrade> getKrakenTradeHistory(String type, boolean includeTrades, Long start, Long end, Long offset) throws IOException {
 
     KrakenTradeHistoryResult result = kraken.tradeHistory(type, includeTrades, start, end, offset, exchange.getExchangeSpecification().getApiKey(),
         signatureCreator, exchange.getNonceFactory());
 
-    return checkResult(result);
+    return checkResult(result).getTrades();
   }
 
   public Map<String, KrakenTrade> queryKrakenTrades(String... transactionIds) throws IOException {
@@ -182,21 +181,6 @@ public class KrakenTradeServiceRaw extends KrakenBaseService {
         signatureCreator, exchange.getNonceFactory());
 
     return checkResult(result);
-  }
-
-  protected Map<String, KrakenOrder> getOrders(String... orderIds) throws IOException {
-
-    String orderIdsString = String.join(",", orderIds);
-
-    KrakenQueryOrderResult krakenOrderResult = kraken.queryOrders(
-            false,
-            null,
-            orderIdsString,
-            exchange.getExchangeSpecification().getApiKey(),
-            signatureCreator,
-            exchange.getNonceFactory());
-
-    return checkResult(krakenOrderResult);
   }
 
 }

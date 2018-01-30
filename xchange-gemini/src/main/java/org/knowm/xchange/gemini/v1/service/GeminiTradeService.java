@@ -149,14 +149,7 @@ public class GeminiTradeService extends GeminiTradeServiceRaw implements TradeSe
   @Override
   public Collection<Order> getOrder(
       String... orderIds) throws IOException {
-
-    Collection<Order> orders = new ArrayList<>(orderIds.length);
-
-    for (String orderId : orderIds) {
-      orders.add(GeminiAdapters.adaptOrder(super.getGeminiOrderStatus(orderId)));
-    }
-
-    return orders;
+    throw new NotYetImplementedForExchangeException();
   }
 
   public static class GeminiTradeHistoryParams implements TradeHistoryParamCurrencyPair, TradeHistoryParamLimit, TradeHistoryParamsTimeSpan {

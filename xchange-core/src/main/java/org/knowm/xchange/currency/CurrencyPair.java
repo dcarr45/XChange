@@ -89,6 +89,7 @@ public class CurrencyPair implements Comparable<CurrencyPair>, Serializable {
   public static final CurrencyPair ETH_CNY = new CurrencyPair(Currency.ETH, Currency.CNY);
   public static final CurrencyPair ETH_AUD = new CurrencyPair(Currency.ETH, Currency.AUD);
   public static final CurrencyPair ETH_NZD = new CurrencyPair(Currency.ETH, Currency.NZD);
+  public static final CurrencyPair ETH_USDT = new CurrencyPair(Currency.ETH, Currency.USDT);
 
   public static final CurrencyPair XAUR_BTC = new CurrencyPair(Currency.XAUR, Currency.BTC);
 
@@ -250,12 +251,6 @@ public class CurrencyPair implements Comparable<CurrencyPair>, Serializable {
 
   // Tether Pairs
   public static final CurrencyPair BTC_USDT = new CurrencyPair(Currency.BTC, Currency.USDT);
-
-  // UAH pairs
-  public static final CurrencyPair BTC_UAH = new CurrencyPair(Currency.BTC, Currency.UAH);
-  public static final CurrencyPair ETH_UAH = new CurrencyPair(Currency.ETH, Currency.UAH);
-  public static final CurrencyPair BCH_UAH = new CurrencyPair(Currency.BCH, Currency.UAH);
-
 
   public final Currency base;
   public final Currency counter;

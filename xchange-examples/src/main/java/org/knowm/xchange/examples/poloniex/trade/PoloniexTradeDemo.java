@@ -12,6 +12,7 @@ import org.knowm.xchange.Exchange;
 import org.knowm.xchange.currency.Currency;
 import org.knowm.xchange.currency.CurrencyPair;
 import org.knowm.xchange.dto.Order.OrderType;
+import org.knowm.xchange.dto.account.AccountInfo;
 import org.knowm.xchange.dto.trade.LimitOrder;
 import org.knowm.xchange.dto.trade.OpenOrders;
 import org.knowm.xchange.examples.poloniex.PoloniexExamplesUtils;
@@ -21,6 +22,7 @@ import org.knowm.xchange.poloniex.dto.trade.PoloniexMarginAccountResponse;
 import org.knowm.xchange.poloniex.dto.trade.PoloniexMarginPostionResponse;
 import org.knowm.xchange.poloniex.service.PoloniexTradeService;
 import org.knowm.xchange.poloniex.service.PoloniexTradeServiceRaw;
+import org.knowm.xchange.service.account.AccountService;
 import org.knowm.xchange.service.trade.TradeService;
 import org.knowm.xchange.service.trade.params.orders.OpenOrdersParamCurrencyPair;
 import org.knowm.xchange.utils.CertHelper;
@@ -40,6 +42,13 @@ public class PoloniexTradeDemo {
     CertHelper.trustAllCerts();
 
     Exchange poloniex = PoloniexExamplesUtils.getExchange();
+
+    AccountService accountService = poloniex.getAccountService();
+
+    AccountInfo accountInfo = accountService.getAccountInfo();
+
+    System.out.println(accountInfo.toString());
+
     TradeService tradeService = poloniex.getTradeService();
     currencyPair = new CurrencyPair(Currency.XMR, Currency.BTC);
 

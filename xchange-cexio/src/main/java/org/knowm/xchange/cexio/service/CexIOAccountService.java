@@ -7,7 +7,6 @@ import java.util.List;
 import org.knowm.xchange.Exchange;
 import org.knowm.xchange.cexio.CexIOAdapters;
 import org.knowm.xchange.cexio.dto.account.CexIOBalanceInfo;
-import org.knowm.xchange.cexio.dto.account.CexIOCryptoAddress;
 import org.knowm.xchange.currency.Currency;
 import org.knowm.xchange.dto.account.AccountInfo;
 import org.knowm.xchange.dto.account.FundingRecord;
@@ -41,8 +40,8 @@ public class CexIOAccountService extends CexIOAccountServiceRaw implements Accou
 
   @Override
   public String requestDepositAddress(Currency currency, String... arguments) throws IOException {
-	CexIOCryptoAddress cryptoAddress = getCexIOCryptoAddress(currency.getCurrencyCode());
-    return cryptoAddress.getData();
+
+    throw new NotAvailableFromExchangeException();
   }
 
   @Override

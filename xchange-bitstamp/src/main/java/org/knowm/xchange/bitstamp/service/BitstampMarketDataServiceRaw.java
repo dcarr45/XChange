@@ -6,7 +6,6 @@ import javax.annotation.Nullable;
 
 import org.knowm.xchange.Exchange;
 import org.knowm.xchange.bitstamp.BitstampV2;
-import org.knowm.xchange.bitstamp.dto.BitstampException;
 import org.knowm.xchange.bitstamp.dto.marketdata.BitstampOrderBook;
 import org.knowm.xchange.bitstamp.dto.marketdata.BitstampTicker;
 import org.knowm.xchange.bitstamp.dto.marketdata.BitstampTransaction;
@@ -28,29 +27,16 @@ public class BitstampMarketDataServiceRaw extends BitstampBaseService {
   }
 
   public BitstampTicker getBitstampTicker(CurrencyPair pair) throws IOException {
-    try {
-      return bitstampV2.getTicker(new BitstampV2.Pair(pair));
-    } catch (BitstampException e) {
-      throw handleError(e);
-    }
+    return bitstampV2.getTicker(new BitstampV2.Pair(pair));
   }
 
   public BitstampOrderBook getBitstampOrderBook(CurrencyPair pair) throws IOException {
-
-    try {
-      return bitstampV2.getOrderBook(new BitstampV2.Pair(pair));
-    } catch (BitstampException e) {
-      throw handleError(e);
-    }
+    return bitstampV2.getOrderBook(new BitstampV2.Pair(pair));
   }
 
   public BitstampTransaction[] getTransactions(CurrencyPair pair, @Nullable BitstampTime time) throws IOException {
 
-    try {
-      return bitstampV2.getTransactions(new BitstampV2.Pair(pair), time);
-    } catch (BitstampException e) {
-      throw handleError(e);
-    }
+    return bitstampV2.getTransactions(new BitstampV2.Pair(pair), time);
   }
 
   public enum BitstampTime {

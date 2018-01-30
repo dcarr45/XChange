@@ -40,6 +40,11 @@ public class BinanceAccountService extends BinanceAccountServiceRaw implements A
   @Override
   public AccountInfo getAccountInfo() throws IOException {
     Long recvWindow = (Long) exchange.getExchangeSpecification().getExchangeSpecificParametersItem("recvWindow");
+
+    if (recvWindow == null) {
+        recvWindow = new Long(6000000);
+    }
+
     BinanceAccountInformation acc = super.account(recvWindow, getTimestamp());
     List<Balance> balances = acc.balances.stream()
         .map(b -> new Balance(b.getCurrency(), b.getTotal(), b.getAvailable()))

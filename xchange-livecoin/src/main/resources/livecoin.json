@@ -341,16 +341,13 @@
       "scale": 2
     },
     "BTC": {
-      "scale": 8,
-      "trading_fee": 0.001
+      "scale": 8
     },
     "ETH": {
-      "scale": 8,
-      "trading_fee": 0.01
+      "scale": 8
     },
     "LTC": {
-      "scale": 8,
-      "trading_fee": 0.02
+      "scale": 8
     },
     "SYS": null,
     "STEEM": null,

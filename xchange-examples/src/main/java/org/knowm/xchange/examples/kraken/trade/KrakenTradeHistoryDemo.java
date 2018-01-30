@@ -36,7 +36,7 @@ public class KrakenTradeHistoryDemo {
     KrakenTradeServiceRaw tradeService = (KrakenTradeServiceRaw) krakenExchange.getTradeService();
 
     // Get the trade history
-    Map<String, KrakenTrade> trades = tradeService.getKrakenTradeHistory().getTrades();
+    Map<String, KrakenTrade> trades = tradeService.getKrakenTradeHistory();
     System.out.println(trades);
 
   }

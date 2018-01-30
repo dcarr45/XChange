@@ -1,11 +1,13 @@
 package org.knowm.xchange.poloniex;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.knowm.xchange.BaseExchange;
 import org.knowm.xchange.Exchange;
 import org.knowm.xchange.ExchangeSpecification;
+import org.knowm.xchange.currency.Currency;
 import org.knowm.xchange.poloniex.dto.marketdata.PoloniexCurrencyInfo;
 import org.knowm.xchange.poloniex.dto.marketdata.PoloniexMarketData;
 import org.knowm.xchange.poloniex.service.PoloniexAccountService;
@@ -59,5 +61,16 @@ public class PoloniexExchange extends BaseExchange implements Exchange {
     Map<String, PoloniexMarketData> poloniexMarketDataMap = poloniexMarketDataServiceRaw.getAllPoloniexTickers();
 
     exchangeMetaData = PoloniexAdapters.adaptToExchangeMetaData(poloniexCurrencyInfoMap, poloniexMarketDataMap, exchangeMetaData);
+  }
+
+  @Override
+  public Map<Currency, Double> getWithdrawalFees() {
+    Map<Currency, Double> wdFees = new HashMap<>();
+
+    wdFees.put(Currency.BTC, 0.0005);
+    wdFees.put(Currency.ETH, .01);
+    wdFees.put(Currency.USDT, 25.0);
+
+    return wdFees;
   }
 }

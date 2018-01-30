@@ -42,7 +42,7 @@ public class GeminiMarketDataServiceRaw extends GeminiBaseService {
       GeminiTicker GeminiTicker = Gemini.getTicker(pair);
       return GeminiTicker;
     } catch (GeminiException e) {
-      throw handleException(e);
+      throw new ExchangeException(e);
     }
   }
 
@@ -57,7 +57,7 @@ public class GeminiMarketDataServiceRaw extends GeminiBaseService {
       }
       return GeminiDepth;
     } catch (GeminiException e) {
-      throw handleException(e);
+      throw new ExchangeException(e);
     }
   }
 
@@ -67,7 +67,7 @@ public class GeminiMarketDataServiceRaw extends GeminiBaseService {
       GeminiLendDepth GeminiLendDepth = Gemini.getLendBook(currency, limitBids, limitAsks);
       return GeminiLendDepth;
     } catch (GeminiException e) {
-      throw handleException(e);
+      throw new ExchangeException("Gemini returned an error", e);
     }
   }
 
@@ -77,7 +77,7 @@ public class GeminiMarketDataServiceRaw extends GeminiBaseService {
       GeminiTrade[] GeminiTrades = Gemini.getTrades(pair, sinceTimestamp, limitTrades);
       return GeminiTrades;
     } catch (GeminiException e) {
-      throw handleException(e);
+      throw new ExchangeException("Gemini returned an error", e);
     }
   }
 
@@ -87,7 +87,7 @@ public class GeminiMarketDataServiceRaw extends GeminiBaseService {
       GeminiLend[] GeminiLends = Gemini.getLends(currency, sinceTimestamp, limitTrades);
       return GeminiLends;
     } catch (GeminiException e) {
-      throw handleException(e);
+      throw new ExchangeException("Gemini returned an error", e);
     }
   }
 
@@ -96,20 +96,16 @@ public class GeminiMarketDataServiceRaw extends GeminiBaseService {
     try {
       return Gemini.getSymbols();
     } catch (GeminiException e) {
-      throw handleException(e);
+      throw new ExchangeException("Gemini returned an error", e);
     }
   }
 
   public List<CurrencyPair> getExchangeSymbols() throws IOException {
 
-    try {
-      List<CurrencyPair> currencyPairs = new ArrayList<>();
-      for (String symbol : Gemini.getSymbols()) {
-        currencyPairs.add(GeminiAdapters.adaptCurrencyPair(symbol));
-      }
-      return currencyPairs;
-    } catch (GeminiException e) {
-      throw handleException(e);
+    List<CurrencyPair> currencyPairs = new ArrayList<>();
+    for (String symbol : Gemini.getSymbols()) {
+      currencyPairs.add(GeminiAdapters.adaptCurrencyPair(symbol));
     }
+    return currencyPairs;
   }
 }

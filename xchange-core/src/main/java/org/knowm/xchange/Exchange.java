@@ -2,7 +2,9 @@ package org.knowm.xchange;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
+import org.knowm.xchange.currency.Currency;
 import org.knowm.xchange.currency.CurrencyPair;
 import org.knowm.xchange.dto.meta.ExchangeMetaData;
 import org.knowm.xchange.exceptions.ExchangeException;
@@ -103,6 +105,10 @@ public interface Exchange {
    * @return The exchange's account service
    */
   AccountService getAccountService();
+
+  String getName();
+
+  Map<Currency, Double> getWithdrawalFees();
 
   /**
    * Initialize this instance with the remote meta data. Most exchanges require this method to be called before {@link #getExchangeMetaData()}. Some

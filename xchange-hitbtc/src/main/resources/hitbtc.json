@@ -49,12 +49,10 @@
       "scale": 8
     },
     "BTC": {
-      "scale": 8,
-      "withdrawal_fee": 0.00085
+      "scale": 8
     },
     "ETH": {
-      "scale": 8,
-      "withdrawal_fee": 0.00215
+      "scale": 8
     },
     "EUR": {
       "scale": 8
@@ -63,8 +61,7 @@
       "scale": 8
     },
     "LTC": {
-      "scale": 8,
-      "withdrawal_fee": 0.00300
+      "scale": 8
     },
     "USD": {
       "scale": 2
@@ -79,43 +76,13 @@
       "scale": 8
     },
     "XMR": {
-      "scale": 8,
-      "withdrawal_fee": 0.09000
+      "scale": 8
     },
     "XRP": {
       "scale": 8
     },
     "XVG": {
       "scale": 8
-    },
-    "BCC": {
-      "scale": 8,
-      "withdrawal_fee": 0.00180
-    },
-    "ETC": {
-      "scale": 8,
-      "withdrawal_fee": 0.00200
-    },
-    "USDT": {
-      "scale": 2,
-      "withdrawal_fee": 100.0
-    },
-    "DASH": {
-      "scale": 8,
-      "withdrawal_fee": 0.03
-    },
-    "BCN": {
-      "scale": 8,
-      "withdrawal_fee": 0.10
-    },
-    "ARDR": {
-      "scale": 8,
-      "withdrawal_fee": 1.0
-    },
-    "STEEM": {
-      "scale": 8,
-      "withdrawal_fee": 0.01
     }
-
   }
 }
