@@ -1,0 +1,100 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.knowm.xchange</groupId>
+        <artifactId>xchange-parent</artifactId>
+        <version>4.3.3-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>exchange-monitor</artifactId>
+
+    <name>Exchange Monitor</name>
+    <description>Monitor spreads</description>
+
+    <url>http://knowm.org/open-source/xchange/</url>
+    <inceptionYear>2012</inceptionYear>
+
+    <organization>
+        <name>Knowm Inc.</name>
+        <url>http://knowm.org/open-source/xchange/</url>
+    </organization>
+
+    <!-- Parent provides default configuration for dependencies -->
+    <dependencies>
+
+        <dependency>
+            <groupId>org.knowm.xchange</groupId>
+            <artifactId>xchange-core</artifactId>
+            <version>4.3.3-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.knowm.xchange</groupId>
+            <artifactId>xchange-binance</artifactId>
+            <version>4.3.3-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.knowm.xchange</groupId>
+            <artifactId>xchange-gdax</artifactId>
+            <version>4.3.3-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.knowm.xchange</groupId>
+            <artifactId>xchange-poloniex</artifactId>
+            <version>4.3.3-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.knowm.xchange</groupId>
+            <artifactId>xchange-bitfinex</artifactId>
+            <version>4.3.3-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>info.bitrich.xchange-stream</groupId>
+            <artifactId>xchange-stream-parent</artifactId>
+            <version>4.3.2-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>info.bitrich.xchange-stream</groupId>
+            <artifactId>xchange-stream-core</artifactId>
+            <version>4.3.2-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>info.bitrich.xchange-stream</groupId>
+            <artifactId>xchange-gdax</artifactId>
+            <version>4.3.2-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>info.bitrich.xchange-stream</groupId>
+            <artifactId>xchange-poloniex2</artifactId>
+            <version>4.3.2-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>info.bitrich.xchange-stream</groupId>
+            <artifactId>xchange-binance</artifactId>
+            <version>4.3.2-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>info.bitrich.xchange-stream</groupId>
+            <artifactId>xchange-bitfinex</artifactId>
+            <version>4.3.2-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.21</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.17</version>
+        </dependency>
+    </dependencies>
+
+</project>
